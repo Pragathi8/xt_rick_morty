@@ -1,0 +1,182 @@
+//Mobile-first
+@import url('https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Pacifico&display=swap');
+
+.logo {
+    display: none;
+}
+
+.title {
+    font-family: 'Covered By Your Grace', 'Pacifico', cursive;
+    font-size: 30px;
+    text-shadow: 8px 8px 9px teal;
+}
+
+#navbarTogglerDemo03 {
+	display: block;
+	justify-content: space-around;
+
+	.autocomplete {
+		position: relative;
+		display: inline-block;
+
+		input {
+			background-color: #f1f1f1;
+			padding: 10px;
+			font-size: 16px;
+		
+			&[type=text] {
+				background-color: #f1f1f1;
+				width: 100%;
+			}
+		}
+
+		.autocomplete-items {
+			position: absolute;
+			border: 1px solid #d4d4d4;
+			border-bottom: none;
+			border-top: none;
+			z-index: 99;
+			top: 100%;
+			left: 0;
+			right: 0;
+		
+			div {
+				padding: 10px;
+				cursor: pointer;
+				background-color: #fff; 
+				border-bottom: 1px solid #d4d4d4;
+		
+				&:hover {
+					background-color: #e9e9e9; 
+				}
+			}
+
+			.autocomplete-active {
+				background-color: DodgerBlue !important; 
+				color: #ffffff; 
+			}
+		}
+	}
+}
+
+.main-container {
+    padding: 0;
+
+    .filters {
+		padding: 15px;
+		
+		.sidebar {
+			float: none;
+			width: 100%;
+
+			.sidebar-heading {
+				padding: 10px;
+				margin-top: 0;
+				margin-bottom: 0;
+				background-color: #eee;
+				font-size: 1.6em;
+			}
+
+			.ul-reset {
+				padding-left: 0;
+				margin-top: 0;
+				margin-bottom: 0;
+				list-style: none;
+
+				.filter-item {
+					border-right: 1px solid #eee;
+					border-left: 1px solid #eee;
+
+					.filter-item-inner {
+						border-bottom: 1px solid #eee;
+
+						.filter-item-inner-heading {
+							position: relative;
+							padding: 10px;
+							padding-right: 30px;
+							margin-top: 0;
+							margin-bottom: 0;
+							font-size: 1.2em;
+							cursor: pointer;
+
+							&.minus:after,
+							&.plus:after {
+								position: absolute;
+								top: 33%;
+								right: 7.5%;
+								font-size: .6em;
+							}
+
+							&.minus:after {
+								content: "▲";
+							}
+
+							&.plus:after {
+								content: "▼";
+							}
+						}
+
+						.filter-attribute-list {
+							overflow: hidden;
+
+							.filter-attribute-list-inner {
+								padding: 0 10px 15px;
+
+								.filter-attribute-item {
+									padding-left: 10px;
+									margin-top: 5px;
+								}
+								
+								.filter-attribute-item:first-child {
+									margin-top: 0;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			#apply-filters {
+				margin: 10px;
+			}
+		}
+    }
+    
+    .container {
+        .character-container {
+            .col-lg-3.col-md-4.col-6 {
+                padding: 0;
+        
+                .card {
+                    margin: 5px;
+        
+                    .card-title, .card-text {
+                        padding: 8px 5px 0 10px;
+                        margin-bottom: 0;
+                        background-color: #101925ad;
+                        color: white;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+        
+                    table {
+                        table-layout: fixed;
+                        width: 100%;
+                        margin-bottom: 0;
+        
+                        td {
+                            padding: 8px 5px 8px 10px;
+                            height: 41px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+  
+

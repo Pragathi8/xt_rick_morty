@@ -1,0 +1,21 @@
+//Desktop
+@media only screen and (min-width: 992px) {
+    .logo {
+        display: block;
+        width: 15%;
+    }
+
+    .title {
+        width: 44%;
+        text-align: center;
+    }
+
+    .container {
+        margin: 0;
+        float: right;
+    }
+
+    .main-container .filters.col-lg-2 .sidebar {
+        float: left;
+    }
+}

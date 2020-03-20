@@ -1,0 +1,23 @@
+//Tablet
+@media only screen and (min-width: 600px) {
+    .logo {
+        width: 20%;
+    }
+
+    .title {
+        margin: 0 auto;
+        font-size: 60px;
+    }
+
+    #navbarTogglerDemo03 {
+        display: inline-flex;
+    }
+
+    .sidebar {
+        width: 30%;
+        float: left;
+	}
+	.content {
+		width: 70%;
+	}
+}
