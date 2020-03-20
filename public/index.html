@@ -4,9 +4,139 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Rick and Morty</title>
 </head>
 <body>
-    <h1>hellllloooooo.....</h1>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <img class="logo" src="./src/images/rickmorty.jpg" alt="Rick And Morty" />
+        <h1 class="title">Rick and Morty</h1>
+      
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <form autocomplete="off" class="form-inline my-2 my-lg-0">
+            <div class="autocomplete">
+              <input id="myInput" type="text" name="myCountry" class="form-control mr-sm-2" type="search" placeholder="Search by Name" aria-label="Search">
+            </div>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
+          </form>
+          <div class="btn-group sorting-container">
+            <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Sort by ID
+            </button>
+            <div class="dropdown-menu sorting-values">
+              <button class="dropdown-item" data-value="ascending">Asecending</button>
+              <button class="dropdown-item" data-value="descending">Descending</button>
+            </div>
+          </div>
+        </div>
+    </nav>
+    <div class="col-12 main-container">
+        <div class="filters col-lg-2">
+            <aside class="sidebar">
+              <h1 class="sidebar-heading">
+                Filter by
+              </h1>
+            
+              <ul class="filter ul-reset">
+                <li class="filter-item">
+                  <section class="filter-item-inner" data-value="species">
+                    <h1 class="filter-item-inner-heading minus">
+                      Species
+                    </h1>
+                    <ul class="filter-attribute-list ul-reset">
+                      <div class="filter-attribute-list-inner">
+                        <li class="filter-attribute-item">
+                          <input type="checkbox" id="colour-attribute-13" class="filter-attribute-checkbox ib-m">
+                          <label for="colour-attribute-13" class="filter-attribute-label ib-m">
+                            Human
+                          </label>
+                        </li>
+                        <li class="filter-attribute-item">
+                          <input type="checkbox" id="colour-attribute-14" class="filter-attribute-checkbox ib-m">
+                          <label for="colour-attribute-14" class="filter-attribute-label ib-m">
+                            Mythology
+                          </label>
+                        </li>
+                        <li class="filter-attribute-item">
+                          <input type="checkbox" id="colour-attribute-15" class="filter-attribute-checkbox ib-m">
+                          <label for="colour-attribute-15" class="filter-attribute-label ib-m">
+                            Alien
+                          </label>
+                        </li>
+                      </div>
+                    </ul>
+                  </section>
+                </li>
+            
+                <li class="filter-item">
+                  <section class="filter-item-inner" data-value="gender">
+                    <h1 class="filter-item-inner-heading minus">
+                      Gender
+                    </h1>
+                    <ul class="filter-attribute-list ul-reset">
+                      <div class="filter-attribute-list-inner">
+                        <li class="filter-attribute-item">
+                          <input type="checkbox" id="size-attribute-1" class="filter-attribute-checkbox ib-m">
+                          <label for="size-attribute-1" class="filter-attribute-label ib-m">
+                            Male
+                          </label>
+                        </li>
+                        <li class="filter-attribute-item">
+                          <input type="checkbox" id="size-attribute-2" class="filter-attribute-checkbox ib-m">
+                          <label for="size-attribute-2" class="filter-attribute-label ib-m">
+                            Female
+                          </label>
+                        </li>
+                      </div>
+                    </ul>
+                  </section>
+                </li>
+            
+                <li class="filter-item">
+                  <section class="filter-item-inner" data-value="origin">
+                    <h1 class="filter-item-inner-heading minus">
+                      Origin
+                    </h1>
+                    <ul class="filter-attribute-list ul-reset">
+                      <div class="filter-attribute-list-inner">
+                        <li class="filter-attribute-item">
+                          <input type="checkbox" id="material-attribute-1" class="filter-attribute-checkbox ib-m">
+                          <label for="material-attribute-1" class="filter-attribute-label ib-m">
+                            Abadango
+                          </label>
+                        </li>
+                        <li class="filter-attribute-item">
+                          <input type="checkbox" id="material-attribute-2" class="filter-attribute-checkbox ib-m">
+                          <label for="material-attribute-2" class="filter-attribute-label ib-m">
+                            Earth (C-137)
+                          </label>
+                        </li>
+                        <li class="filter-attribute-item">
+                          <input type="checkbox" id="material-attribute-3" class="filter-attribute-checkbox ib-m">
+                          <label for="material-attribute-3" class="filter-attribute-label ib-m">
+                            unknown
+                          </label>
+                        </li>
+                        <li class="filter-attribute-item">
+                          <input type="checkbox" id="material-attribute-4" class="filter-attribute-checkbox ib-m">
+                          <label for="material-attribute-4" class="filter-attribute-label ib-m">
+                            Other Origins
+                          </label>
+                        </li>
+                      </div>
+                    </ul>
+                  </section>
+                </li>
+              </ul>
+              <button type="button" id="apply-filters" class="btn btn-outline-primary">Apply filters</button>
+            </aside>
+        </div>
+        <div class="container col-lg-10">
+          <div class="row character-container"></div>
+        </div>
+    </div>
 <script type="text/javascript" src="bundle.js"></script></body>
 </html>
