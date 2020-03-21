@@ -31,12 +31,12 @@ function saveDataInLocalDB(data) {
     let allCharacters = data.results.map(ch => ch.name);
     autocomplete(document.getElementById("myInput"), allCharacters);
     fetch(url,{
-        method: 'POST',
+        method: 'PUT',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json; charset=utf-8'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data.results)
     });
 }
 
@@ -140,13 +140,11 @@ function autocomplete(inp, arr) {
       if (currentFocus < 0) currentFocus = (x.length - 1);
       x[currentFocus].classList.add("autocomplete-active");
     }
-
     function removeActive(x) {
       for (var i = 0; i < x.length; i++) {
         x[i].classList.remove("autocomplete-active");
       }
     }
-    
     function closeAllLists(elmnt) {
       var x = document.getElementsByClassName("autocomplete-items");
       for (var i = 0; i < x.length; i++) {
@@ -162,8 +160,16 @@ function getDetailsByName(name) {
     fetch(url)
     .then(res =>res.json())
     .then(data => {
-        var card = data.results.find(obj => obj.name == name);
+        var card = data.find(obj => obj.name == name);
         createCards(Array.of(card), characterContainer);
+        fetch(url,{
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json; charset=utf-8'
+            },
+            body: JSON.stringify(card)
+        });
     });
 }
 
@@ -180,33 +186,23 @@ function getAllCheckedCheckboxes() {
 
 function getFilteredCharacters() {
     let filterItems = getAllCheckedCheckboxes();
-    let species = [];
-    let gender = [];
-    let origin = [];
     let filterArray = [];
     let filteredData = [];
     filterItems.forEach(item => {
         let category = item.parentElement.parentElement.parentElement.parentElement.dataset.value;
         let categoryValue = item.nextElementSibling.innerText;
         filterArray.push({category: category, categoryValue: categoryValue});
-        if(category === "species") {
-            species.push({category: category, categoryValue: categoryValue});
-        } else if(category === "gender") {
-            gender.push({category: category, categoryValue: categoryValue});
-        } else {
-            origin.push({category: category, categoryValue: categoryValue});
-        }
     });
     let url = "http://localhost:3000/data";
     fetch(url)
     .then(res =>res.json())
     .then(data => {
         let finalList = [];
-        var results = data.results;
+        var results = data;
         for(var arr in results) {
             for(var filter in filterArray) {
-                if(results[arr].species === filterArray[filter].categoryValue && 
-                    results[arr].gender === filterArray[filter].categoryValue &&
+                if(results[arr].species === filterArray[filter].categoryValue || 
+                    results[arr].gender === filterArray[filter].categoryValue ||
                     results[arr].origin.name === filterArray[filter].categoryValue
                     ) {
                     finalList.push(results[arr])
@@ -219,6 +215,14 @@ function getFilteredCharacters() {
             }
         }
         createCards(filteredData, characterContainer);
+        fetch(url,{
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json; charset=utf-8'
+            },
+            body: JSON.stringify(filteredData)
+        });
     });
 }
 
@@ -228,7 +232,7 @@ function sortById(event) {
     fetch(url)
     .then(res =>res.json())
     .then(response => {
-        let data = response.results;
+        let data = response;
         if(sortingOrder === "ascending") {
             data.sort((a, b) => parseInt(a.id) - parseInt(b.id));
         } else if(sortingOrder === "descending") {
