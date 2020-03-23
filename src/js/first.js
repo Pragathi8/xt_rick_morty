@@ -30,14 +30,7 @@ function saveDataInLocalDB(data) {
     let url = "http://localhost:3000/data";
     let allCharacters = data.results.map(ch => ch.name);
     autocomplete(document.getElementById("myInput"), allCharacters);
-    fetch(url,{
-        method: 'PUT',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json; charset=utf-8'
-        },
-        body: JSON.stringify(data.results)
-    });
+    setData(data.results);
 }
 
 function createCards(data, target) {
@@ -162,14 +155,7 @@ function getDetailsByName(name) {
     .then(data => {
         var card = data.find(obj => obj.name == name);
         createCards(Array.of(card), characterContainer);
-        fetch(url,{
-            method: 'PUT',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json; charset=utf-8'
-            },
-            body: JSON.stringify(card)
-        });
+        // setData(card);
     });
 }
 
@@ -215,14 +201,7 @@ function getFilteredCharacters() {
             }
         }
         createCards(filteredData, characterContainer);
-        fetch(url,{
-            method: 'PUT',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json; charset=utf-8'
-            },
-            body: JSON.stringify(filteredData)
-        });
+        setData(filteredData);
     });
 }
 
@@ -240,4 +219,16 @@ function sortById(event) {
         }
         createCards(data, characterContainer);
     })
+}
+
+function setData(data) {
+    let url = "http://localhost:3000/data";
+    fetch(url,{
+        method: 'PUT',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json; charset=utf-8'
+        },
+        body: JSON.stringify(data)
+    });
 }

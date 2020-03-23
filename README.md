@@ -31,3 +31,10 @@ json-server --watch db.json
 ```
 
 ### To run the application have two terminals; one running local server and another running app'n
+
+### initial state of db.json 
+```
+{
+  "data": {}
+}
+```
