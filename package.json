@@ -20,7 +20,7 @@
   "dependencies": {
     "babel-preset-env": "^1.7.0",
     "bootstrap": "^4.4.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "json-server": "^0.16.1",
     "loadash": "^1.0.0",
     "node-sass": "^4.13.1",
